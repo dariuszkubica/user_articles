@@ -4,7 +4,7 @@ enum Flavor {
 }
 
 class Config {
-  static Flavor appFlavor = Flavor.production;
+  static Flavor appFlavor = Flavor.development;
 
   static String get helloMessage {
     switch (appFlavor) {
@@ -21,6 +21,15 @@ class Config {
         return 'https://my-json-server.typicode.com/adamsmaka/json-demo';
       case Flavor.production:
         return 'https://my-json-server.typicode.com/adamsmaka/json-demo';
+    }
+  }
+
+  static bool get debugShowCheckedModeBanner {
+    switch (appFlavor) {
+      case Flavor.development:
+        return true;
+      case Flavor.production:
+        return false;
     }
   }
 }
