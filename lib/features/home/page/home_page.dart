@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:user_articles/app/core/config.dart';
 import 'package:user_articles/app/core/enums.dart';
 import 'package:user_articles/app/injection_container.dart';
 import 'package:user_articles/domain/models/author_model.dart';
@@ -14,6 +15,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(Config.helloMessage)),
       body: BlocProvider<HomeCubit>(
         create: (context) {
           return getIt<HomeCubit>()..start();
@@ -43,7 +45,7 @@ class HomePage extends StatelessWidget {
                   child: Text(
                     state.errorMessage ?? 'Unknown error',
                     style: TextStyle(
-                      color: Theme.of(context).errorColor,
+                      color: Theme.of(context).colorScheme.error,
                     ),
                   ),
                 );
