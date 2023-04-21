@@ -28,7 +28,7 @@ void main() {
           ],
         );
       });
-      blocTest<ArticlesCubit, ArticlesState>(
+      blocTest(
         'emits Status.loading then Status.success with results',
         build: () => sut,
         act: (cubit) => cubit.fetchData(authorId: 555),
@@ -53,7 +53,7 @@ void main() {
           Exception('test-exeption-error'),
         );
       });
-      blocTest<ArticlesCubit, ArticlesState>(
+      blocTest(
         'emits Status.loading then Status.error with error message',
         build: () => sut,
         act: (cubit) => cubit.fetchData(authorId: 555),
